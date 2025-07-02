@@ -1,12 +1,28 @@
 version: 0.2
+
+env:
+  variables:
+    IMAGE_NAME: deployment-check-cicd
+
 phases:
+  install:
+    runtime-versions:
+      java: corretto17
+      docker: 18
+    commands:
+      - echo Installing dependencies...
+
   build:
     commands:
       - echo Packaging JAR file...
       - mvn clean package
+      - echo Building Docker image...
+      - docker build -t $IMAGE_NAME -f Dockerfile .
+
   post_build:
     commands:
       - echo Build complete.
+
 artifacts:
   files:
     - target/deployment-check-cicd.jar
