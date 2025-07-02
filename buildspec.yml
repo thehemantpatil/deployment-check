@@ -17,7 +17,7 @@ phases:
       - echo Packaging JAR file...
       - mvn clean package
       - echo Building Docker image...
-      - docker build -t $IMAGE_NAME -f Dockerfile .
+      - docker build -t $IMAGE_NAME .
 
   post_build:
     commands:
