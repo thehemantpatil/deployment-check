@@ -19,7 +19,7 @@ phases:
       - pwd
       - ls -la
       - cat Dockerfile || echo "Dockerfile not found!"
-      - docker build -t $IMAGE_NAME .
+      - docker build -t $IMAGE_NAME -f docker .
 
   post_build:
     commands:
