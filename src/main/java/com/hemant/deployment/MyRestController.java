@@ -10,6 +10,6 @@ public class MyRestController {
 	
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return "Name is " + name;
+		return "Name is here: " + name;
 	}
 }
